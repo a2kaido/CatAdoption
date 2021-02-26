@@ -16,17 +16,34 @@
 package com.example.androiddevchallenge
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import androidx.compose.ui.graphics.Color
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Cat(val res: Int) : Parcelable
+data class Cat(
+    val res: Int,
+    val nameColor: Color,
+    val name: String,
+    val price: Int
+) : Parcelable
 
 fun catList() = listOf(
-    Cat(R.drawable.cat1),
-    Cat(R.drawable.cat2),
-    Cat(R.drawable.cat3),
-    Cat(R.drawable.cat4),
-    Cat(R.drawable.cat5),
-    Cat(R.drawable.cat6),
-    Cat(R.drawable.cat7),
+    Cat(R.drawable.cat1, Color.Black, "I", 100),
+    Cat(R.drawable.cat2, Color.Black,"Want", 500),
+    Cat(R.drawable.cat3, Color.Black, "To", 800),
+    Cat(R.drawable.cat4, Color.White, "Have", 900),
+    Cat(R.drawable.cat5, Color.White, "Shared", 800),
+    Cat(R.drawable.cat6, Color.White, "Elements", 500),
+    Cat(R.drawable.cat1, Color.Black, "I", 100),
+    Cat(R.drawable.cat2, Color.Black,"Want", 500),
+    Cat(R.drawable.cat3, Color.Black, "To", 800),
+    Cat(R.drawable.cat4, Color.White, "Have", 900),
+    Cat(R.drawable.cat5, Color.White, "Shared", 800),
+    Cat(R.drawable.cat6, Color.White, "Elements", 500),
+    Cat(R.drawable.cat1, Color.Black, "I", 100),
+    Cat(R.drawable.cat2, Color.Black,"Want", 500),
+    Cat(R.drawable.cat3, Color.Black, "To", 800),
+    Cat(R.drawable.cat4, Color.White, "Have", 900),
+    Cat(R.drawable.cat5, Color.White, "Shared", 800),
+    Cat(R.drawable.cat6, Color.White, "Elements", 500),
 )
