@@ -16,34 +16,33 @@
 package com.example.androiddevchallenge
 
 import android.os.Parcelable
-import androidx.compose.ui.graphics.Color
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Cat(
     val res: Int,
-    val nameColor: Color,
+    val nameColorRes: Int,
     val name: String,
     val price: Int
 ) : Parcelable
 
 fun catList() = listOf(
-    Cat(R.drawable.cat1, Color.Black, "I", 100),
-    Cat(R.drawable.cat2, Color.Black, "Want", 500),
-    Cat(R.drawable.cat3, Color.Black, "To", 800),
-    Cat(R.drawable.cat4, Color.White, "Have", 900),
-    Cat(R.drawable.cat5, Color.White, "Shared", 800),
-    Cat(R.drawable.cat6, Color.White, "Elements", 500),
-    Cat(R.drawable.cat1, Color.Black, "I", 100),
-    Cat(R.drawable.cat2, Color.Black, "Want", 500),
-    Cat(R.drawable.cat3, Color.Black, "To", 800),
-    Cat(R.drawable.cat4, Color.White, "Have", 900),
-    Cat(R.drawable.cat5, Color.White, "Shared", 800),
-    Cat(R.drawable.cat6, Color.White, "Elements", 500),
-    Cat(R.drawable.cat1, Color.Black, "I", 100),
-    Cat(R.drawable.cat2, Color.Black, "Want", 500),
-    Cat(R.drawable.cat3, Color.Black, "To", 800),
-    Cat(R.drawable.cat4, Color.White, "Have", 900),
-    Cat(R.drawable.cat5, Color.White, "Shared", 800),
-    Cat(R.drawable.cat6, Color.White, "Elements", 500),
+    Cat(R.drawable.cat1, R.color.black, "I", 100),
+    Cat(R.drawable.cat2, R.color.black, "Want", 500),
+    Cat(R.drawable.cat3, R.color.black, "To", 800),
+    Cat(R.drawable.cat4, R.color.white, "Have", 900),
+    Cat(R.drawable.cat5, R.color.white, "Shared", 800),
+    Cat(R.drawable.cat6, R.color.white, "Elements", 500),
+    Cat(R.drawable.cat1, R.color.black, "I", 100),
+    Cat(R.drawable.cat2, R.color.black, "Want", 500),
+    Cat(R.drawable.cat3, R.color.black, "To", 800),
+    Cat(R.drawable.cat4, R.color.white, "Have", 900),
+    Cat(R.drawable.cat5, R.color.white, "Shared", 800),
+    Cat(R.drawable.cat6, R.color.white, "Elements", 500),
+    Cat(R.drawable.cat1, R.color.black, "I", 100),
+    Cat(R.drawable.cat2, R.color.black, "Want", 500),
+    Cat(R.drawable.cat3, R.color.black, "To", 800),
+    Cat(R.drawable.cat4, R.color.white, "Have", 900),
+    Cat(R.drawable.cat5, R.color.white, "Shared", 800),
+    Cat(R.drawable.cat6, R.color.white, "Elements", 500),
 )
