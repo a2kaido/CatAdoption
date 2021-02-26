@@ -17,16 +17,12 @@ package com.example.androiddevchallenge
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.expandHorizontally
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Image
@@ -61,7 +57,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.ui.theme.MyTheme
-import kotlinx.coroutines.coroutineScope
 
 class MainActivity : AppCompatActivity() {
     @ExperimentalAnimationApi
@@ -142,7 +137,7 @@ fun CatDetail(cat: Cat) {
         )
         Spacer(modifier = Modifier.padding(8.dp))
         var visible by remember { mutableStateOf(false) }
-        Handler().postDelayed({ visible = true }, 300)
+        Handler(Looper.getMainLooper()).postDelayed({ visible = true }, 300)
         AnimatedVisibility(
             visible = visible,
             enter = slideInHorizontally(),
