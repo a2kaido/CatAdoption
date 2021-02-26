@@ -23,6 +23,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -57,7 +58,13 @@ fun AppNavigation() {
 
     NavHost(navController, startDestination = "list") {
         composable("list") { CatList(navController) }
-        composable("detail") { CatDetail() }
+        composable("detail") {
+            CatDetail(
+                navController.previousBackStackEntry!!.arguments!!.getParcelable(
+                    "cat"
+                )!!
+            )
+        }
     }
 }
 
@@ -71,17 +78,20 @@ fun MyApp() {
 @Composable
 fun CatList(navController: NavHostController) {
     LazyColumn {
-        items(10) {
+        items(catList()) {
             Card(
                 modifier = Modifier
-                    .clickable { navController.navigate("detail") }
+                    .clickable {
+                        navController.currentBackStackEntry?.arguments?.putParcelable("cat", it)
+                        navController.navigate("detail")
+                    }
                     .fillParentMaxWidth()
                     .padding(8.dp),
                 backgroundColor = colorResource(id = R.color.purple_500),
                 elevation = 8.dp
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                    painter = painterResource(id = it.res),
                     "cat"
                 )
             }
@@ -90,15 +100,12 @@ fun CatList(navController: NavHostController) {
 }
 
 @Composable
-fun CatDetail() {
+fun CatDetail(cat: Cat) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
-        backgroundColor = colorResource(id = R.color.purple_500),
+        modifier = Modifier.fillMaxWidth()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+            painter = painterResource(id = cat.res),
             "cat"
         )
     }
